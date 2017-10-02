@@ -1,3 +1,4 @@
+//interface
 protocol Gun{
     func getGunFeature()->String
     
@@ -40,7 +41,8 @@ class Rifle: Gun{
     }
 }
 
-class Factory{
+//factory class
+class GunFactory{
     static func getGunFactory(shipType:String)->Gun?{
         switch shipType {
         case "P":
@@ -60,5 +62,6 @@ class Factory{
     }
 }
 
-let gun = Factory.getGunFactory(shipType: "R")
+//Implementation
+let gun = GunFactory.getGunFactory(shipType: "R")
 print(gun!.getGunFeature())

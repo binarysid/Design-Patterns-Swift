@@ -14,4 +14,4 @@ class SingleTon{
 let instanceA = SingleTon.getInstance()!
 print("object id A: \(String(ObjectIdentifier(instanceA).hashValue))")
 let instanceB = SingleTon.getInstance()!
-print("object id B: \(String(ObjectIdentifier(instanceB).hashValue))")
+print("object id B: \(String(ObjectIdentifier(instanceB).hashValue))") // will print the same object id as before

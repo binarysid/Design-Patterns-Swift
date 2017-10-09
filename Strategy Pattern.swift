@@ -42,4 +42,41 @@ let dog = Dog()
 print(dog.tryToFly()!)
 dog.setFlyingAbility(fly: Canfly())
 print(dog.tryToFly()!)
-//dog.setAbility(fly: Notfly())
+
+
+// another example of Strategy pattern
+protocol FileFormatInterface{
+    func saveFile(format:String)
+}
+
+class DOCFormat:FileFormatInterface{ //loosely coupled class implementing parent protocol
+    func saveFile(format: String) {
+        print("saving as doc")
+    }
+}
+class PDFFormat:FileFormatInterface{//loosely coupled class implementing parent protocol
+    func saveFile(format: String) {
+        print("saving as pdf")
+    }
+}
+
+class TextFormat:FileFormatInterface{//loosely coupled class implementing parent protocol
+    func saveFile(format: String) {
+        print("saving as txt")
+    }
+}
+class FileFormatter{
+    var format: FileFormatInterface?
+    init(fileFormat:FileFormatInterface) {
+        self.format = fileFormat
+    }
+    func saveInFormat(){
+        
+        format?.saveFile(format: "")
+    }
+}
+let createImg = FileFormatter(fileFormat: PDFFormat())
+createImg.saveInFormat()
+
+
+
